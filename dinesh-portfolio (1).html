@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dinesh Nalla — Retail IT Solutions Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#F5A623;
+  --gold2:#E8941A;
+  --dark:#1C2226;
+  --dark2:#151B1E;
+  --white:#FFFFFF;
+  --gray:#F4F4F4;
+  --text:#333;
+  --light-text:#666;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+/* ── NAVBAR ── */
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:#fff;padding:18px 60px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 20px rgba(0,0,0,.06);}
+.logo{font-size:1.5rem;font-weight:800;color:var(--dark);}
+.logo span{color:var(--gold);}
+.nav-menu{display:flex;gap:32px;list-style:none;align-items:center;}
+.nav-menu a{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--dark);transition:color .3s;}
+.nav-menu a:hover,.nav-menu a.active{color:var(--gold);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{width:22px;height:2px;background:var(--dark);border-radius:2px;transition:.3s;}
+
+/* ── SOCIAL SIDEBAR ── */
+.social-sidebar{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:999;display:flex;flex-direction:column;gap:1px;}
+.social-sidebar a{width:42px;height:42px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--dark);transition:all .3s;border-left:3px solid transparent;}
+.social-sidebar a:hover{background:var(--gold);color:#fff;border-color:var(--gold2);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:#fff;padding-top:76px;}
+.hero-bg{position:absolute;top:0;left:0;width:72%;height:100%;background:var(--dark2);clip-path:polygon(0 0, 100% 0, 85% 100%, 0 100%);z-index:0;}
+.hero-container{max-width:1200px;margin:0 auto;padding:0 60px;display:flex;align-items:center;gap:0;position:relative;z-index:2;width:100%;}
+.hero-left{flex:1;padding-right:60px;}
+.hero-hello{font-size:.95rem;font-weight:500;color:rgba(255,255,255,.65);margin-bottom:4px;}
+.hero-name{font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:12px;}
+.hero-title{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:18px;letter-spacing:-1px;}
+.hero-title span{color:var(--gold);}
+.hero-typed-row{font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:16px;font-weight:400;}
+.hero-typed{color:var(--gold);font-weight:700;border-right:2px solid var(--gold);padding-right:3px;animation:blink 1s infinite;}
+@keyframes blink{0%,100%{border-color:var(--gold);}50%{border-color:transparent;}}
+.hero-quote{font-style:italic;font-size:.9rem;color:rgba(255,255,255,.5);border-left:3px solid var(--gold);padding-left:14px;margin-bottom:28px;line-height:1.7;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px;}
+.btn{padding:13px 30px;border-radius:4px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;cursor:pointer;border:none;font-family:'Poppins',sans-serif;display:inline-flex;align-items:center;gap:8px;transition:all .3s;position:relative;overflow:hidden;}
+.btn-gold{background:var(--gold);color:#fff;}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,166,35,.4);}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.hero-stats{display:flex;gap:32px;}
+.stat{text-align:center;}
+.stat-num{font-size:2rem;font-weight:800;color:var(--white);display:block;line-height:1;}
+.stat-lbl{font-size:.72rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
+.stat-sep{width:1px;height:40px;background:rgba(255,255,255,.1);align-self:center;}
+.hero-right{flex:0 0 420px;display:flex;justify-content:center;align-items:flex-end;position:relative;}
+.hero-img-wrap{width:380px;height:480px;position:relative;display:flex;align-items:flex-end;justify-content:center;}
+.hero-initials-block{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:5rem;font-weight:900;color:#fff;box-shadow:0 20px 60px rgba(245,166,35,.4);margin:auto;animation:floatHero 5s ease-in-out infinite;}
+@keyframes floatHero{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
+.hero-badge{position:absolute;bottom:40px;right:-10px;background:#fff;border-radius:10px;padding:12px 18px;box-shadow:0 8px 30px rgba(0,0,0,.12);display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:700;color:var(--dark);}
+.hero-badge i{font-size:1.4rem;color:var(--gold);}
+.hero-badge-2{bottom:120px;right:-20px;font-size:.75rem;}
+
+/* ── PLAY BTN ── */
+.play-btn{width:64px;height:64px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;margin-top:22px;transition:all .3s;box-shadow:0 6px 20px rgba(245,166,35,.4);}
+.play-btn:hover{transform:scale(1.1);box-shadow:0 10px 30px rgba(245,166,35,.5);}
+.play-btn i{font-size:1.5rem;color:#fff;margin-left:3px;}
+.play-btn-wrap{display:flex;align-items:center;gap:14px;}
+.play-text{font-size:.82rem;color:rgba(255,255,255,.55);font-weight:500;}
+
+/* ── SECTION BASE ── */
+.section{padding:90px 60px;}
+.section-alt{background:var(--gray);}
+.max{max-width:1200px;margin:0 auto;}
+.sec-title{font-size:1.9rem;font-weight:800;color:var(--dark);margin-bottom:8px;letter-spacing:-.5px;}
+.sec-title span{color:var(--gold);}
+.sec-title-line{width:50px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:40px;}
+.sec-sub{color:var(--light-text);font-size:.9rem;margin-bottom:40px;}
+.sec-center{text-align:center;}
+.sec-center .sec-title-line{margin:0 auto 40px;}
+
+/* ── SERVICES ── */
+.services-circles{display:flex;justify-content:center;flex-wrap:wrap;gap:30px;margin-top:50px;}
+.svc-circle{width:190px;height:190px;border-radius:50%;border:2.5px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:default;transition:all .4s;text-align:center;padding:20px;background:#fff;}
+.svc-circle:hover,.svc-circle.active{background:var(--gold);border-color:var(--gold);}
+.svc-circle:hover *,.svc-circle.active *{color:#fff!important;}
+.svc-circle i{font-size:2.2rem;color:var(--gold);transition:color .3s;}
+.svc-circle h4{font-size:.83rem;font-weight:700;color:var(--dark);line-height:1.3;transition:color .3s;}
+.svc-circle p{font-size:.7rem;color:var(--light-text);line-height:1.5;transition:color .3s;}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center;}
+.about-visual-wrap{position:relative;}
+.about-card{width:100%;aspect-ratio:4/5;border-radius:8px;background:var(--dark2);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.about-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,166,35,.15),transparent 60%);}
+.about-card-icon{font-size:7rem;color:rgba(255,255,255,.15);}
+.about-initials{font-size:6rem;font-weight:900;color:var(--gold);position:relative;z-index:2;}
+.about-float{position:absolute;bottom:-20px;right:-20px;background:#fff;border-radius:10px;padding:18px 22px;box-shadow:0 10px 40px rgba(0,0,0,.12);}
+.about-float .big{font-size:2.6rem;font-weight:900;color:var(--gold);line-height:1;}
+.about-float .small{font-size:.75rem;color:var(--light-text);margin-top:2px;}
+.about-content h3{font-size:1.7rem;font-weight:800;color:var(--dark);margin-bottom:14px;letter-spacing:-.5px;}
+.about-content p{font-size:.9rem;color:var(--light-text);line-height:1.8;margin-bottom:12px;}
+.about-tags{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 28px;}
+.atag{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid #e8e8e8;border-radius:6px;font-size:.82rem;font-weight:600;color:var(--dark);transition:all .3s;}
+.atag:hover{border-color:var(--gold);color:var(--gold);background:rgba(245,166,35,.04);transform:translateX(4px);}
+.atag i{font-size:1.3rem;}
+
+/* ── SKILLS ── */
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.skill-bar-item{margin-bottom:20px;}
+.skill-top{display:flex;justify-content:space-between;margin-bottom:7px;}
+.skill-name-row{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600;color:var(--dark);}
+.skill-name-row i{font-size:1.2rem;}
+.skill-pct{font-size:.88rem;font-weight:700;color:var(--gold);}
+.skill-track{height:8px;background:#eee;border-radius:20px;overflow:hidden;}
+.skill-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;transition:width 1.5s cubic-bezier(.4,0,.2,1);}
+.skills-orb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.s-orb{aspect-ratio:1;border-radius:12px;border:2px solid #e8e8e8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:default;transition:all .3s;background:#fff;}
+.s-orb:hover{border-color:var(--gold);box-shadow:0 6px 24px rgba(245,166,35,.15);transform:translateY(-4px);}
+.s-orb i{font-size:2rem;}
+.s-orb span{font-size:.72rem;font-weight:700;color:var(--dark);}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.proj-card{border-radius:10px;overflow:hidden;border:1px solid #e8e8e8;background:#fff;transition:all .35s;cursor:default;}
+.proj-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1);border-color:var(--gold);}
+.proj-top{height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden;}
+.proj-top i{font-size:2.8rem;color:rgba(255,255,255,.85);position:relative;z-index:2;transition:transform .4s;}
+.proj-card:hover .proj-top i{transform:scale(1.15) rotate(-5deg);}
+.proj-top span{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:1.5px;position:relative;z-index:2;}
+.proj-body{padding:18px;}
+.proj-body h4{font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:5px;}
+.proj-body p{font-size:.78rem;color:var(--light-text);line-height:1.6;margin-bottom:12px;}
+.proj-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.ptag{padding:2px 10px;border-radius:4px;font-size:.7rem;font-weight:600;background:#FFF3DC;color:#9A6700;border:1px solid rgba(245,166,35,.2);}
+
+/* ── TIMELINE ── */
+.timeline-wrap{max-width:700px;margin:0 auto;position:relative;padding-left:28px;}
+.timeline-wrap::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold),rgba(245,166,35,.1));}
+.t-item{position:relative;margin-bottom:28px;}
+.t-dot{position:absolute;left:-23px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(245,166,35,.15);}
+.t-card{padding:22px 24px;background:#fff;border-radius:8px;border:1px solid #eee;transition:.3s;}
+.t-card:hover{border-color:var(--gold);box-shadow:0 6px 24px rgba(0,0,0,.07);}
+.t-year{display:inline-block;padding:2px 12px;background:var(--gold);color:#fff;border-radius:4px;font-size:.72rem;font-weight:700;margin-bottom:10px;}
+.t-card h3{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:3px;}
+.t-card .inst{color:var(--gold);font-weight:600;font-size:.83rem;margin-bottom:6px;}
+.t-card p{font-size:.82rem;color:var(--light-text);}
+.t-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;background:#FFF3DC;color:#9A6700;font-size:.72rem;font-weight:700;border-radius:4px;margin-top:8px;}
+
+/* ── STRENGTHS ── */
+.str-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.str-card{padding:28px 18px;text-align:center;border-radius:10px;background:#fff;border:1px solid #eee;transition:.35s;}
+.str-card:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 10px 32px rgba(0,0,0,.08);}
+.str-icon{width:60px;height:60px;border-radius:50%;border:2px solid var(--gold);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--gold);transition:.3s;}
+.str-card:hover .str-icon{background:var(--gold);color:#fff;}
+.str-card h4{font-size:.92rem;font-weight:700;color:var(--dark);margin-bottom:5px;}
+.str-card p{font-size:.78rem;color:var(--light-text);line-height:1.6;}
+
+/* ── AVAILABILITY ── */
+.avail-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:860px;margin:0 auto;}
+.avail-box{padding:26px 16px;border-radius:10px;text-align:center;border:2px solid #e8e8e8;background:#fff;cursor:default;transition:.3s;}
+.avail-box:hover{border-color:var(--gold);box-shadow:0 8px 28px rgba(245,166,35,.15);transform:scale(1.04);}
+.avail-icon{width:52px;height:52px;border-radius:12px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;}
+.avail-box h4{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:2px;}
+.avail-box p{font-size:.74rem;color:var(--light-text);}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;}
+.contact-info{padding:32px;border-radius:10px;background:var(--dark2);position:relative;overflow:hidden;}
+.contact-info::before{content:'';position:absolute;top:-40%;right:-20%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.15),transparent 70%);pointer-events:none;}
+.contact-info h3{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:8px;}
+.contact-info>p{font-size:.87rem;color:rgba(255,255,255,.5);margin-bottom:28px;}
+.ci-item{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.ci-icon{width:44px;height:44px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.3s;}
+.ci-icon i{font-size:1.3rem;color:var(--gold);}
+.ci-item:hover .ci-icon{background:var(--gold);border-color:var(--gold);}
+.ci-item:hover .ci-icon i{color:#fff;}
+.ci-item h4{font-size:.72rem;color:rgba(255,255,255,.4);font-weight:600;}
+.ci-item p,.ci-item a{font-size:.85rem;color:rgba(255,255,255,.8);font-weight:500;}
+.c-socials{display:flex;gap:8px;margin-top:24px;}
+.csoc{width:38px;height:38px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:rgba(255,255,255,.45);transition:.3s;}
+.csoc:hover{background:var(--gold);border-color:var(--gold);color:#fff;transform:translateY(-3px);}
+.contact-form{padding:32px;border-radius:10px;background:#fff;border:1px solid #eee;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fg{margin-bottom:12px;}
+.fg.full{grid-column:1/-1;}
+.fg label{display:block;font-size:.78rem;font-weight:600;color:var(--dark);margin-bottom:5px;}
+.fg input,.fg textarea{width:100%;padding:11px 14px;border:1.5px solid #e8e8e8;border-radius:6px;font-size:.87rem;color:var(--dark);font-family:'Poppins',sans-serif;outline:none;transition:.3s;background:#fafafa;}
+.fg input:focus,.fg textarea:focus{border-color:var(--gold);background:#fff;box-shadow:0 0 0 3px rgba(245,166,35,.08);}
+.fg textarea{height:110px;resize:vertical;}
+.fg input::placeholder,.fg textarea::placeholder{color:#bbb;}
+
+/* ── FOOTER ── */
+.footer{background:var(--dark2);padding:50px 60px 24px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;margin-bottom:32px;}
+.footer-brand-name{font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:10px;}
+.footer-brand-name span{color:var(--gold);}
+.footer-brand>p{font-size:.83rem;color:rgba(255,255,255,.35);line-height:1.7;}
+.footer h4{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:14px;}
+.f-links{display:flex;flex-direction:column;gap:9px;}
+.f-links a{font-size:.82rem;color:rgba(255,255,255,.35);transition:.3s;display:flex;align-items:center;gap:6px;}
+.f-links a:hover{color:var(--gold);transform:translateX(4px);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);}
+.footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.25);}
+.footer-bottom a{color:var(--gold);}
+
+/* ── SCROLL TOP ── */
+.scroll-top{position:fixed;bottom:26px;right:56px;width:44px;height:44px;border-radius:8px;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;cursor:pointer;border:none;opacity:0;visibility:hidden;transition:.4s;z-index:999;box-shadow:0 6px 20px rgba(245,166,35,.4);}
+.scroll-top.show{opacity:1;visibility:visible;}
+.scroll-top:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(245,166,35,.5);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:all .7s cubic-bezier(.4,0,.2,1);}
+.reveal-l{opacity:0;transform:translateX(-28px);transition:all .7s cubic-bezier(.4,0,.2,1);}
+.reveal-r{opacity:0;transform:translateX(28px);transition:all .7s cubic-bezier(.4,0,.2,1);}
+.reveal.v,.reveal-l.v,.reveal-r.v{opacity:1;transform:none;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-container{flex-direction:column;text-align:center;}
+  .hero-bg{width:100%;clip-path:polygon(0 0,100% 0,100% 75%,0 100%);}
+  .hero-left{padding-right:0;}
+  .hero-btns,.hero-stats{justify-content:center;}
+  .hero-right{margin-top:30px;}
+  .about-grid,.skills-layout,.contact-grid{grid-template-columns:1fr;}
+  .proj-grid{grid-template-columns:1fr 1fr;}
+  .str-grid,.avail-row{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .navbar{padding:16px 24px;}
+  .nav-menu{display:none;position:fixed;top:0;right:-100%;height:100vh;width:250px;background:#fff;flex-direction:column;padding:80px 24px 30px;gap:6px;transition:right .4s;box-shadow:-10px 0 40px rgba(0,0,0,.08);z-index:999;}
+  .nav-menu.open{right:0;display:flex;}
+  .hamburger{display:flex;z-index:1001;}
+  .section{padding:70px 24px;}
+  .hero-container{padding:0 24px;}
+  .hero-bg{width:100%;}
+  .proj-grid,.str-grid,.avail-row{grid-template-columns:1fr;}
+  .social-sidebar{display:none;}
+  .footer{padding:40px 24px 20px;}
+  .footer-top{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
+  .services-circles{gap:18px;}
+  .svc-circle{width:155px;height:155px;}
+}
+</style>
+</head>
+<body>
+
+<!-- SOCIAL SIDEBAR -->
+<div class="social-sidebar">
+  <a href="https://wa.me/917385351824" target="_blank"><i class="ri-whatsapp-line"></i></a>
+  <a href="mailto:nalladinesh53@gmail.com"><i class="ri-mail-line"></i></a>
+  <a href="#" target="_blank"><i class="ri-linkedin-box-line"></i></a>
+  <a href="#" target="_blank"><i class="ri-github-line"></i></a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="logo">DINESH <span>NALLA</span></div>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#home" onclick="cN()">Home</a></li>
+    <li><a href="#about" onclick="cN()">About</a></li>
+    <li><a href="#services" onclick="cN()">Services</a></li>
+    <li><a href="#skills" onclick="cN()">Skills</a></li>
+    <li><a href="#projects" onclick="cN()">Projects</a></li>
+    <li><a href="#education" onclick="cN()">Education</a></li>
+    <li><a href="#contact" onclick="cN()" style="color:var(--gold);font-weight:700;">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" id="ham" onclick="tN()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-container">
+    <div class="hero-left reveal-l">
+      <div class="hero-hello">Hello, I Am</div>
+      <div class="hero-name">Dinesh Nalla</div>
+      <h1 class="hero-title"><span>Retail IT</span> Solutions<br>Specialist</h1>
+      <div class="hero-typed-row">I build <span class="hero-typed" id="typed"></span></div>
+      <div class="hero-quote">"Transforming Retail Operations Through Smart Technology"</div>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-gold"><i class="ri-folder-3-line"></i> My Projects</a>
+        <div class="play-btn-wrap">
+          <div class="play-btn" onclick="location.href='#contact'"><i class="ri-play-fill"></i></div>
+          <span class="play-text">Watch Demo /<br>Get in Touch</span>
+        </div>
+        <a href="https://wa.me/917385351824" class="btn btn-outline"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-lbl">Projects</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-lbl">Languages</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><span class="stat-num" data-count="83">0</span><span class="stat-lbl">Diploma %</span></div>
+      </div>
+    </div>
+    <div class="hero-right reveal-r">
+      <div class="hero-img-wrap">
+        <div class="hero-initials-block">DN</div>
+        <div class="hero-badge" style="position:absolute;bottom:60px;right:-10px;">
+          <i class="ri-store-2-line"></i>Retail Expert
+        </div>
+        <div class="hero-badge hero-badge-2" style="position:absolute;bottom:140px;left:-20px;">
+          <i class="devicon-flutter-plain colored" style="font-size:1.2rem;"></i> Flutter Dev
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="max">
+    <div class="sec-center reveal">
+      <h2 class="sec-title"><span>My</span> Services</h2>
+      <div class="sec-title-line"></div>
+      <p class="sec-sub">End-to-end retail IT solutions designed for your business growth</p>
+    </div>
+    <div class="services-circles">
+      <div class="svc-circle active reveal">
+        <i class="ri-store-2-line"></i>
+        <h4>Multi-Branch<br>Inventory</h4>
+        <p>Real-time stock tracking</p>
+      </div>
+      <div class="svc-circle reveal">
+        <i class="ri-line-chart-line"></i>
+        <h4>Sales &amp;<br>Analytics</h4>
+        <p>Target vs achievement</p>
+      </div>
+      <div class="svc-circle reveal">
+        <i class="devicon-flutter-plain colored" style="font-size:2.2rem;"></i>
+        <h4>Flutter App<br>Development</h4>
+        <p>Cross-platform apps</p>
+      </div>
+      <div class="svc-circle reveal">
+        <i class="ri-barcode-line"></i>
+        <h4>Barcode &amp;<br>GST Billing</h4>
+        <p>Fast checkout systems</p>
+      </div>
+      <div class="svc-circle reveal">
+        <i class="ri-wifi-off-line"></i>
+        <h4>Offline-First<br>Systems</h4>
+        <p>Zero downtime apps</p>
+      </div>
+      <div class="svc-circle reveal">
+        <i class="ri-settings-3-line"></i>
+        <h4>System<br>Integration</h4>
+        <p>Tally, POS &amp; more</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+  <div class="max about-grid">
+    <div class="about-visual-wrap reveal-l">
+      <div class="about-card">
+        <div class="about-initials">DN</div>
+      </div>
+      <div class="about-float">
+        <div class="big">6+</div>
+        <div class="small">Projects Delivered</div>
+      </div>
+    </div>
+    <div class="about-content reveal-r">
+      <h2 class="sec-title"><span>About</span> Me</h2>
+      <div class="sec-title-line" style="margin-bottom:20px;"></div>
+      <h3>Computer Engineering &amp; Retail Automation</h3>
+      <p>I'm <strong>Dinesh Nalla</strong>, a Retail IT Solutions Specialist from Solapur. I build inventory management, sales tracking, and multi-branch operations systems for clothing &amp; textile businesses.</p>
+      <p>Shipped real apps — <strong>Textile Manage, MEDIQO, GymManagement, MediTracker, RideNGo</strong> — all production-grade Flutter applications. Diploma: 83% from VVP Polytechnic.</p>
+      <div class="about-tags">
+        <div class="atag"><i class="devicon-flutter-plain colored"></i>Flutter &amp; Dart</div>
+        <div class="atag"><i class="devicon-mysql-plain colored"></i>MySQL Database</div>
+        <div class="atag"><i class="devicon-firebase-plain colored"></i>Firebase &amp; SQLite</div>
+        <div class="atag"><i class="ri-links-line" style="color:var(--gold);"></i>REST API</div>
+        <div class="atag"><i class="ri-bar-chart-grouped-line" style="color:var(--gold);"></i>Business Analytics</div>
+        <div class="atag"><i class="ri-wifi-off-line" style="color:var(--gold);"></i>Offline-First Design</div>
+      </div>
+      <a href="mailto:nalladinesh53@gmail.com?subject=Resume%20Request" class="btn btn-gold"><i class="ri-download-line"></i> Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="max">
+    <div class="sec-center reveal">
+      <h2 class="sec-title"><span>My</span> Skills</h2>
+      <div class="sec-title-line"></div>
+      <p class="sec-sub">Battle-tested technologies powering real retail solutions</p>
+    </div>
+    <div class="skills-layout">
+      <div class="reveal-l">
+        <div class="skill-bar-item">
+          <div class="skill-top"><div class="skill-name-row"><i class="devicon-flutter-plain colored"></i>Flutter &amp; Dart</div><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="95%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-top"><div class="skill-name-row"><i class="devicon-mysql-plain colored"></i>MySQL Database</div><span class="skill-pct">90%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="90%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-top"><div class="skill-name-row"><i class="devicon-firebase-plain colored"></i>Firebase &amp; SQLite</div><span class="skill-pct">88%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="88%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-top"><div class="skill-name-row"><i class="ri-links-line" style="color:var(--gold)"></i>REST API</div><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="85%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-top"><div class="skill-name-row"><i class="ri-bar-chart-2-line" style="color:var(--gold)"></i>Business Analytics</div><span class="skill-pct">92%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="92%"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-top"><div class="skill-name-row"><i class="ri-barcode-line" style="color:var(--gold)"></i>Inventory Systems</div><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-w="95%"></div></div>
+        </div>
+      </div>
+      <div class="skills-orb-grid reveal-r">
+        <div class="s-orb"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></div>
+        <div class="s-orb"><i class="devicon-dart-plain colored"></i><span>Dart</span></div>
+        <div class="s-orb"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+        <div class="s-orb"><i class="devicon-firebase-plain colored"></i><span>Firebase</span></div>
+        <div class="s-orb"><i class="devicon-sqlite-plain colored"></i><span>SQLite</span></div>
+        <div class="s-orb"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+        <div class="s-orb"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+        <div class="s-orb"><i class="devicon-cplusplus-plain colored"></i><span>C / C++</span></div>
+        <div class="s-orb"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section section-alt" id="projects">
+  <div class="max">
+    <div class="sec-center reveal">
+      <h2 class="sec-title"><span>My</span> Projects</h2>
+      <div class="sec-title-line"></div>
+      <p class="sec-sub">Production-grade solutions for real-world retail challenges</p>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj-card reveal">
+        <div class="proj-top" style="background:linear-gradient(145deg,#0F4C81,#1E73BE,#38BDF8)">
+          <i class="ri-store-2-line"></i>
+          <span>Multi-Branch Retail</span>
+        </div>
+        <div class="proj-body">
+          <h4>Textile Manage</h4>
+          <p>Multi-branch inventory, GST billing, sales tracking &amp; real-time stock alerts for textile retailers.</p>
+          <div class="proj-tags"><span class="ptag">Flutter</span><span class="ptag">MySQL</span><span class="ptag">Firebase</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top" style="background:linear-gradient(145deg,#3730A3,#6C63FF,#A78BFA)">
+          <i class="ri-hospital-line"></i>
+          <span>Offline-First System</span>
+        </div>
+        <div class="proj-body">
+          <h4>MEDIQO</h4>
+          <p>Works seamlessly offline &amp; auto-syncs online. Zero downtime retail environment management.</p>
+          <div class="proj-tags"><span class="ptag">Flutter</span><span class="ptag">SQLite</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top" style="background:linear-gradient(145deg,#B45309,#F59E0B,#FCD34D)">
+          <i class="ri-heart-pulse-line"></i>
+          <span>Fitness Management</span>
+        </div>
+        <div class="proj-body">
+          <h4>GymManagement</h4>
+          <p>Memberships, attendance tracking &amp; automated reminders — architecture applicable to retail.</p>
+          <div class="proj-tags"><span class="ptag">Flutter</span><span class="ptag">Firebase</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top" style="background:linear-gradient(145deg,#047857,#10B981,#6EE7B7)">
+          <i class="ri-capsule-line"></i>
+          <span>Inventory Tracker</span>
+        </div>
+        <div class="proj-body">
+          <h4>MediTracker</h4>
+          <p>Automated inventory with low-stock notifications. Core concepts directly applicable to retail stock management.</p>
+          <div class="proj-tags"><span class="ptag">Flutter</span><span class="ptag">Firebase</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top" style="background:linear-gradient(145deg,#0D9488,#14B8A6,#5EEAD4)">
+          <i class="ri-riding-line"></i>
+          <span>Smart Mobility</span>
+        </div>
+        <div class="proj-body">
+          <h4>RideNGo</h4>
+          <p>Real-time GPS tracking and control with live IoT data management and Flutter UI.</p>
+          <div class="proj-tags"><span class="ptag">Flutter</span><span class="ptag">Dart</span><span class="ptag">IoT</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top" style="background:linear-gradient(145deg,#BE185D,#EC4899,#F9A8D4)">
+          <i class="ri-home-heart-line"></i>
+          <span>Healthcare Platform</span>
+        </div>
+        <div class="proj-body">
+          <h4>Your Home, Our Care</h4>
+          <p>Customer-facing healthcare service booking platform with seamless UX &amp; real-time appointments.</p>
+          <div class="proj-tags"><span class="ptag">Flutter</span><span class="ptag">Firebase</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="max">
+    <div class="sec-center reveal">
+      <h2 class="sec-title"><span>My</span> Education</h2>
+      <div class="sec-title-line"></div>
+    </div>
+    <div class="timeline-wrap">
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <span class="t-year">2025 — Present</span>
+          <h3>B.Tech in Computer Engineering</h3>
+          <div class="inst">Vidya Vikas Pratishthan Institute Of Engineering &amp; Technology</div>
+          <p>Currently pursuing advanced studies in software development &amp; system design.</p>
+          <span class="t-badge"><i class="ri-loader-4-line"></i> In Progress</span>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <span class="t-year">2022 — 2025</span>
+          <h3>Diploma in Computer Engineering</h3>
+          <div class="inst">Vidya Vikas Pratishthan Polytechnic</div>
+          <p>Completed with <strong>83%</strong> — strong foundation in programming, databases &amp; software engineering.</p>
+          <span class="t-badge"><i class="ri-check-double-line"></i> Completed · 83%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section class="section section-alt">
+  <div class="max">
+    <div class="sec-center reveal">
+      <h2 class="sec-title"><span>Why</span> Choose Me</h2>
+      <div class="sec-title-line"></div>
+    </div>
+    <div class="str-grid">
+      <div class="str-card reveal">
+        <div class="str-icon"><i class="ri-lightbulb-line"></i></div>
+        <h4>Problem Solving</h4>
+        <p>Analytical approach creating innovative technical solutions for real business challenges</p>
+      </div>
+      <div class="str-card reveal">
+        <div class="str-icon"><i class="ri-chat-smile-3-line"></i></div>
+        <h4>Communication</h4>
+        <p>Explaining complex tech to non-technical stakeholders in clear business language</p>
+      </div>
+      <div class="str-card reveal">
+        <div class="str-icon"><i class="ri-map-pin-2-line"></i></div>
+        <h4>Local Advantage</h4>
+        <p>Based in Solapur with deep understanding of local retail market dynamics</p>
+      </div>
+      <div class="str-card reveal">
+        <div class="str-icon"><i class="ri-global-line"></i></div>
+        <h4>4 Languages</h4>
+        <p>Fluent in English, Marathi, Telugu &amp; Hindi for seamless communication</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVAILABILITY -->
+<section class="section">
+  <div class="max">
+    <div class="sec-center reveal">
+      <h2 class="sec-title"><span>Flexible</span> Engagement</h2>
+      <div class="sec-title-line"></div>
+      <p class="sec-sub">Choose the model that works best for your business</p>
+    </div>
+    <div class="avail-row">
+      <div class="avail-box reveal">
+        <div class="avail-icon" style="background:linear-gradient(135deg,#1E73BE,#38BDF8);"><i class="ri-briefcase-line"></i></div>
+        <h4>Full-time</h4><p>Dedicated &amp; committed</p>
+      </div>
+      <div class="avail-box reveal">
+        <div class="avail-icon" style="background:linear-gradient(135deg,#10B981,#38BDF8);"><i class="ri-time-line"></i></div>
+        <h4>Part-time</h4><p>Flexible consulting</p>
+      </div>
+      <div class="avail-box reveal">
+        <div class="avail-icon" style="background:linear-gradient(135deg,#8B5CF6,#EC4899);"><i class="ri-file-list-3-line"></i></div>
+        <h4>Project-based</h4><p>End-to-end delivery</p>
+      </div>
+      <div class="avail-box reveal">
+        <div class="avail-icon" style="background:linear-gradient(135deg,var(--gold),#E8941A);"><i class="ri-shield-check-line"></i></div>
+        <h4>15-Day Trial</h4><p>No risk, all reward</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+  <div class="max">
+    <div class="sec-center reveal">
+      <h2 class="sec-title"><span>Contact</span> Us</h2>
+      <div class="sec-title-line"></div>
+      <p class="sec-sub">15-Day Free Trial — Let's transform your retail operations together</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-l">
+        <h3>Let's Build Together</h3>
+        <p>Open to retail IT projects, business automation &amp; exciting opportunities in Solapur &amp; beyond!</p>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="ri-phone-line"></i></div>
+          <div><h4>Phone</h4><p><a href="tel:+917385351824">+91 73853 51824</a></p></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="ri-mail-line"></i></div>
+          <div><h4>Email</h4><p><a href="mailto:nalladinesh53@gmail.com">nalladinesh53@gmail.com</a></p></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="ri-map-pin-line"></i></div>
+          <div><h4>Location</h4><p>Solapur, Maharashtra</p></div>
+        </div>
+        <div class="c-socials">
+          <a class="csoc" href="https://wa.me/917385351824" target="_blank"><i class="ri-whatsapp-line"></i></a>
+          <a class="csoc" href="mailto:nalladinesh53@gmail.com"><i class="ri-mail-send-line"></i></a>
+          <a class="csoc" href="#"><i class="ri-linkedin-box-line"></i></a>
+          <a class="csoc" href="#"><i class="ri-github-line"></i></a>
+        </div>
+      </div>
+      <form class="contact-form reveal-r" id="cForm" onsubmit="sendMail(event)">
+        <div class="form-row">
+          <div class="fg"><label>Your Name</label><input type="text" id="fName" placeholder="Enter your name" required></div>
+          <div class="fg"><label>Your Email</label><input type="email" id="fEmail" placeholder="your@email.com" required></div>
+          <div class="fg full"><label>Project Type</label><input type="text" id="fProj" placeholder="Inventory system, billing app..."></div>
+          <div class="fg full"><label>Message</label><textarea id="fMsg" placeholder="Tell me about your business needs..."></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:4px;"><i class="ri-send-plane-line"></i> Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">DINESH <span>NALLA</span></div>
+      <p>Retail IT Solutions Specialist · Building inventory management &amp; multi-branch systems for textile businesses in Solapur, Maharashtra.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <div class="f-links">
+        <a href="#home"><i class="ri-arrow-right-s-line"></i> Home</a>
+        <a href="#about"><i class="ri-arrow-right-s-line"></i> About</a>
+        <a href="#projects"><i class="ri-arrow-right-s-line"></i> Projects</a>
+        <a href="#contact"><i class="ri-arrow-right-s-line"></i> Contact</a>
+      </div>
+    </div>
+    <div>
+      <h4>Projects</h4>
+      <div class="f-links">
+        <a href="#projects"><i class="ri-store-2-line"></i> Textile Manage</a>
+        <a href="#projects"><i class="ri-hospital-line"></i> MEDIQO</a>
+        <a href="#projects"><i class="ri-heart-pulse-line"></i> GymManagement</a>
+        <a href="#projects"><i class="ri-capsule-line"></i> MediTracker</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 <a href="#">Dinesh Nalla</a> · Made with ❤️ in Solapur</p>
+    <p>References Available Upon Request</p>
+  </div>
+</footer>
+
+<button class="scroll-top" id="sTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="ri-arrow-up-line"></i></button>
+
+<script>
+// Nav
+window.addEventListener('scroll',()=>{
+  document.getElementById('sTop').classList.toggle('show',scrollY>500);
+  let cur='';
+  document.querySelectorAll('section[id]').forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
+  document.querySelectorAll('.nav-menu a').forEach(l=>{
+    l.classList.toggle('active',l.getAttribute('href')==='#'+cur);
+    if(l.getAttribute('href')==='#contact')return;
+  });
+});
+function tN(){document.getElementById('navMenu').classList.toggle('open');document.getElementById('ham').classList.toggle('on')}
+function cN(){document.getElementById('navMenu').classList.remove('open');document.getElementById('ham').classList.remove('on')}
+
+// Typewriter
+const words=['Retail Management Systems 🏪','Inventory Solutions 📦','Multi-Branch Operations 🏢','Sales Analytics Dashboards 📊','GST-Compliant Billing 📋','Offline-First Apps 🔌','Flutter Mobile Apps 📱'];
+let wi=0,ci=0,del=false;
+const te=document.getElementById('typed');
+function typ(){
+  const w=words[wi];
+  te.textContent=w.substring(0,del?--ci:++ci);
+  let s=del?30:65;
+  if(!del&&ci===w.length){s=2200;del=true}
+  if(del&&ci===0){del=false;wi=(wi+1)%words.length;s=350}
+  setTimeout(typ,s);
+}
+typ();
+
+// Counters
+let cc=false;
+function animC(){
+  if(cc)return;cc=true;
+  document.querySelectorAll('.stat-num').forEach(c=>{
+    const t=+c.dataset.count;let v=0;
+    const go=()=>{v+=t/50;if(v<t){c.textContent=Math.ceil(v)+(t>10?'%':'+');requestAnimationFrame(go)}else c.textContent=t+(t>10?'%':'+')};
+    go();
+  });
+}
+
+// Reveal + skill bars
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('v');
+    e.target.querySelectorAll('.skill-fill').forEach(b=>b.style.width=b.dataset.w);
+    if(e.target.querySelector('.stat-num'))animC();
+  });
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+
+const ho=new IntersectionObserver(e=>{if(e[0].isIntersecting)animC()},{threshold:.2});
+ho.observe(document.querySelector('.hero'));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const href=this.getAttribute('href');
+    if(href==='#'){return;}
+    e.preventDefault();
+    const t=document.querySelector(href);
+    if(t)t.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// Service circle hover
+document.querySelectorAll('.svc-circle').forEach(c=>{
+  c.addEventListener('mouseenter',()=>{
+    document.querySelectorAll('.svc-circle').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active');
+  });
+});
+
+// Contact form
+function sendMail(e){
+  e.preventDefault();
+  const n=document.getElementById('fName').value,em=document.getElementById('fEmail').value,p=document.getElementById('fProj').value,m=document.getElementById('fMsg').value;
+  window.location.href='mailto:nalladinesh53@gmail.com?subject='+encodeURIComponent('Retail IT Inquiry from '+n)+'&body='+encodeURIComponent('Name: '+n+'\nEmail: '+em+'\nProject: '+p+'\n\nMessage:\n'+m);
+}
+</script>
+</body>
+</html>
